@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#000000">
+<title>Phạm Công Lý | Thực tập sinh Business Analyst</title>
+<meta name="description" content="Portfolio của Phạm Công Lý, sinh viên Hệ thống thông tin định hướng Business Analyst.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2236%22 fill=%22%23F97316%22/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --orange:#F97316;
+    --black:#000;
+    --ink:#111;
+    --white:#fff;
+    --grey:#555;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Inter",system-ui,sans-serif;background:var(--white);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--orange);outline-offset:4px}
+  .container{max-width:1280px;margin:0 auto;padding:0 32px}
+
+  .hero{position:relative;min-height:100vh;background:linear-gradient(90deg,rgba(0,0,0,.84),rgba(0,0,0,.68)),url("assets/hero-cover.jpg") center 42%/cover no-repeat;color:var(--white);display:flex;align-items:center}
+  nav{position:absolute;top:0;left:0;right:0;padding:28px 0}
+  nav .container{display:flex;justify-content:flex-end;align-items:center}
+  nav ul{list-style:none;display:flex;gap:28px}
+  nav ul a,footer ul a{font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+  nav ul a:hover,footer ul a:hover{color:var(--orange)}
+  .hero-content{width:100%;display:flex;align-items:center;justify-content:flex-start;gap:clamp(32px,7vw,100px);text-align:left}
+  .hero-portrait{display:block;width:clamp(210px,25vw,310px);height:clamp(270px,36vw,390px);flex:0 0 auto;object-fit:cover;object-position:center 20%;border:1px solid rgba(255,255,255,.35);border-radius:12px 12px 110px 12px;box-shadow:0 24px 70px rgba(0,0,0,.45)}
+  .hero-copy{max-width:680px}
+  h1{font-size:clamp(2.4rem,6vw,5.2rem);font-weight:800;line-height:1.05;letter-spacing:-.03em}
+  .sub{margin-top:14px;font-size:.95rem;font-weight:500;letter-spacing:.35em;text-transform:uppercase;color:#ddd}
+  .hero-note{max-width:40em;margin:22px 0 0;color:#ddd;font-size:.98rem}
+  .btn{display:inline-flex;align-items:center;gap:10px;margin-top:30px;background:var(--orange);color:var(--black);font-size:.9rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;border-radius:4px;transition:transform .2s}
+  .btn:hover{transform:translateY(-3px)}
+  .btn svg{width:14px;height:14px}
+  .scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px;font-size:.65rem;font-weight:700;letter-spacing:.3em;color:#888}
+  .scroll span{position:relative;display:block;width:1px;height:48px;background:#333;overflow:hidden}
+  .scroll span::after{content:"";position:absolute;left:0;top:-20px;width:1px;height:20px;background:var(--orange);animation:drop 1.8s ease-in-out infinite}
+  @keyframes drop{to{top:48px}}
+
+  section{padding:100px 0}
+  h2{text-align:center;font-size:2rem;font-weight:800;letter-spacing:-.01em;text-transform:uppercase}
+  h2::after{content:"";display:block;width:80px;height:4px;background:var(--orange);margin:16px auto 48px}
+  .about{position:relative;isolation:isolate;overflow:hidden}
+  .about::before,.about::after{position:absolute;z-index:-1;content:"";pointer-events:none}
+  .about::before{top:72px;left:max(calc((100vw - 1060px)/2),5%);width:116px;height:116px;border:1px solid rgba(249,115,22,.24);border-radius:34% 66% 57% 43%/43% 42% 58% 57%;transform:rotate(-18deg)}
+  .about::after{right:max(calc((100vw - 1030px)/2),6%);bottom:62px;width:78px;height:78px;border:12px solid rgba(33,72,181,.07);border-radius:50%;box-shadow:0 0 0 12px rgba(33,72,181,.035)}
+  .about .container{position:relative}
+  .about-decor{position:absolute;z-index:0;pointer-events:none}
+  .about-decor--dots{top:82px;right:9%;width:78px;height:62px;background-image:radial-gradient(circle,#f97316 1.8px,transparent 2px);background-size:16px 16px;opacity:.34}
+  .about-decor--ring{top:48%;left:10%;width:34px;height:34px;border:5px solid rgba(249,115,22,.14);border-radius:50%}
+  .about-decor--diamond{right:13%;bottom:23%;width:28px;height:28px;border:2px solid rgba(33,72,181,.16);transform:rotate(45deg)}
+  .about-decor--spark{left:18%;bottom:15%;width:30px;height:30px;background:linear-gradient(rgba(249,115,22,.22),rgba(249,115,22,.22)) center/2px 100% no-repeat,linear-gradient(rgba(249,115,22,.22),rgba(249,115,22,.22)) center/100% 2px no-repeat;transform:rotate(45deg)}
+  .about .container>*:not(.about-decor){position:relative;z-index:1}
+  .about p{max-width:42em;margin:0 auto 30px;text-align:center;font-size:1.12rem;color:#333}
+  .tags{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;list-style:none}
+  .tags li{padding:7px 14px;border-radius:7px;background:#e8efff;color:#2449ae;font-size:.82rem;font-weight:600}
+  .tags li:nth-child(2){background:#e8eaff;color:#4338ca}
+  .tags li:nth-child(3){background:#f3e8ff;color:#7e22ce}
+  .skill-bars{display:grid;max-width:760px;gap:24px;margin:0 auto;padding:30px;background:#f7f8fa;list-style:none}
+  .skill-item{display:grid;gap:8px}
+  .skill-meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;color:#344054;font-size:.9rem;font-weight:500}
+  .skill-value{flex:0 0 auto;color:var(--orange);font-weight:600}
+  .skill-track{height:6px;overflow:hidden;border-radius:999px;background:#e4e6eb}
+  .skill-level{display:block;width:var(--skill-level);height:100%;border-radius:inherit;background:linear-gradient(90deg,#fb923c,var(--orange))}
+
+  .education{max-width:760px;margin:0 auto;text-align:center}
+  .education h3{font-size:1.25rem}
+  .education p{margin-top:7px;color:var(--grey)}
+  .education .date{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .card{position:relative;display:flex;flex-direction:column;justify-content:flex-start;min-height:260px;padding:28px;border-radius:12px;color:var(--white);overflow:hidden;background:radial-gradient(circle at 85% 15%,rgba(249,115,22,.35),transparent 55%),linear-gradient(160deg,#222,#050505);transition:transform .3s,box-shadow .3s}
+  .card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+  .card small{font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--orange)}
+  .card h3{font-size:1.25rem;font-weight:700;margin:5px 0 8px}
+  .card p{font-size:.9rem;color:#bbb}
+  .card ul{margin:12px 0 0;padding-left:18px;color:#ccc;font-size:.85rem}
+  .card li+li{margin-top:5px}
+  .activities{max-width:820px;margin:0 auto}
+  .activity{padding:0 0 24px 24px;border-left:1px solid #ccc}
+  .activity:last-child{padding-bottom:0}
+  .activity h3{font-size:1.05rem}
+  .activity p{margin:4px 0 0;color:var(--grey);font-size:.9rem}
+  .activity small{color:var(--orange);font-weight:700}
+
+  footer{border-top:1px solid var(--ink);padding:44px 0}
+  footer .container{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+  footer ul{list-style:none;display:flex;gap:28px}
+  footer small{font-size:.75rem;color:var(--grey)}
+  .top{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border:0;border-radius:50%;background:var(--ink);color:var(--white);cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .3s}
+  .top.show{opacity:1;pointer-events:auto}
+  .top svg{width:18px;height:18px}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .scroll span::after{animation:none;top:0}
+    .btn,.card,.top{transition:none}
+  }
+  @media (max-width:760px){
+    .container{padding:0 24px}
+    nav ul{gap:18px}
+    .hero-content{gap:28px}
+    .hero-portrait{width:190px;height:260px}
+    section{padding:78px 0}
+    .grid{grid-template-columns:1fr}
+    footer .container{flex-direction:column;align-items:flex-start}
+  }
+  @media (max-width:480px){
+    .container{padding:0 20px}
+    nav{padding:22px 0}
+
+    nav ul{gap:12px}
+    nav ul a{font-size:.64rem}
+    .hero-content{flex-direction:column;align-items:flex-start;gap:24px;padding-top:68px;padding-bottom:90px}
+    .hero-portrait{width:145px;height:180px;border-radius:10px 10px 60px 10px}
+    .hero-copy{max-width:100%}
+    h1{font-size:clamp(2.3rem,12vw,3rem)}
+    .sub{font-size:.75rem;letter-spacing:.2em}
+    h2{font-size:1.65rem}
+    .about::before{top:42px;left:-42px;width:94px;height:94px}
+    .about::after{right:-28px;bottom:40px;width:58px;height:58px}
+    .about-decor--dots{top:42px;right:7%;width:54px;height:46px;background-size:13px 13px}
+    .about-decor--ring{top:45%;left:4%;width:22px;height:22px}
+    .about-decor--diamond{right:7%;bottom:19%;width:20px;height:20px}
+    .about-decor--spark{left:9%;bottom:11%;width:22px;height:22px}
+    footer ul{gap:18px}
+  }
+</style>
+</head>
+<body>
+<header class="hero" id="home">
+  <nav aria-label="Điều hướng chính">
+    <div class="container">
+      <ul>
+        <li><a href="#about">Giới thiệu</a></li>
+        <li><a href="#projects">Dự án</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container hero-content">
+    <img class="hero-portrait" src="assets/profile.jpg" alt="Ảnh chân dung Phạm Công Lý" width="310" height="390">
+    <div class="hero-copy">
+      <h1>Phạm Công Lý</h1>
+      <p class="sub">Thực tập sinh Business Analyst</p>
+      <p class="hero-note">Sinh viên năm 4 ngành Hệ thống thông tin tại Đại học Công nghiệp Hà Nội. Mình thích phân tích bài toán và kết nối nhu cầu người dùng với giải pháp công nghệ.</p>
+      <a class="btn" href="#projects">Xem dự án
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+  <a class="scroll" href="#about" aria-label="Cuộn xuống">SCROLL DOWN<span></span></a>
+</header>
+
+<main>
+  <section class="about" id="about">
+    <div class="container">
+      <span class="about-decor about-decor--dots" aria-hidden="true"></span>
+      <span class="about-decor about-decor--ring" aria-hidden="true"></span>
+      <span class="about-decor about-decor--diamond" aria-hidden="true"></span>
+      <span class="about-decor about-decor--spark" aria-hidden="true"></span>
+      <h2>Giới thiệu</h2>
+      <p>Mình là sinh viên năm 4 ngành Hệ thống thông tin tại Đại học Công nghiệp Hà Nội, quan tâm đến cách sản phẩm được hình thành từ nhu cầu thực tế của người dùng. Qua các đồ án, mình đã tham gia khảo sát, phân tích quy trình nghiệp vụ, đặc tả yêu cầu và mô hình hóa hệ thống bằng Use Case, Activity Diagram, Sequence Diagram và ERD. Mình mong muốn tiếp tục trau dồi chuyên môn Business Analyst, đồng thời phối hợp tốt với đội phát triển để chuyển những yêu cầu nghiệp vụ thành giải pháp rõ ràng, hữu ích.</p>
+      <ul class="tags" aria-label="Kỹ năng nổi bật">
+        <li>Use Case &amp; UML</li>
+        <li>BRD / SRS</li>
+        <li>Activity Diagram</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <h2>Học vấn</h2>
+      <div class="education">
+        <p class="date">2023 – Nay</p>
+        <h3>Đại học Công nghiệp Hà Nội</h3>
+        <p>Ngành Hệ thống thông tin · Sinh viên năm 4</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h2>Kỹ năng chuyên môn</h2>
+      <ul class="skill-bars" aria-label="Mức độ kỹ năng">
+        <li class="skill-item">
+          <div class="skill-meta"><span>Thu thập &amp; làm rõ yêu cầu khách hàng</span><span class="skill-value">95%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="Thu thập và làm rõ yêu cầu khách hàng" aria-valuemin="0" aria-valuemax="100" aria-valuenow="95"><span class="skill-level" style="--skill-level:95%"></span></div>
+        </li>
+        <li class="skill-item">
+          <div class="skill-meta"><span>Viết tài liệu: URD, FRD, BRD, SRS</span><span class="skill-value">92%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="Viết tài liệu URD, FRD, BRD, SRS" aria-valuemin="0" aria-valuemax="100" aria-valuenow="92"><span class="skill-level" style="--skill-level:92%"></span></div>
+        </li>
+        <li class="skill-item">
+          <div class="skill-meta"><span>Mô hình hóa quy trình: Use Case, Activity Diagram, ERD</span><span class="skill-value">90%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="Mô hình hóa quy trình" aria-valuemin="0" aria-valuemax="100" aria-valuenow="90"><span class="skill-level" style="--skill-level:90%"></span></div>
+        </li>
+        <li class="skill-item">
+          <div class="skill-meta"><span>Viết Test Case, hỗ trợ UAT</span><span class="skill-value">85%</span></div>
+          <div class="skill-track" role="progressbar" aria-label="Viết Test Case, hỗ trợ UAT" aria-valuemin="0" aria-valuemax="100" aria-valuenow="85"><span class="skill-level" style="--skill-level:85%"></span></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2>Dự án</h2>
+      <div class="grid">
+        <article class="card">
+          <small>Đồ án cơ sở ngành · 03/2025 – 06/2025</small>
+          <h3>Hệ thống tra cứu trường đại học ngành Công nghệ thông tin</h3>
+          <p>Phân tích quy trình nghiệp vụ và thiết kế trải nghiệm tra cứu cho học sinh, phụ huynh.</p>
+          <ul>
+            <li>Khảo sát nhu cầu, xây dựng Use Case Diagram và đặc tả 7 Use Case cốt lõi.</li>
+            <li>Thiết kế Wireframe/Prototype bằng Figma; website được triển khai trên GitHub Pages.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <small>Đồ án chuyên ngành · 09/2025 – Nay</small>
+          <h3>Hệ thống phân tích phản hồi khách hàng và theo dõi chất lượng dịch vụ</h3>
+          <p>Nền tảng quản trị phản hồi đa kênh và theo dõi chất lượng dịch vụ.</p>
+          <ul>
+            <li>Phân rã 8 nhóm chức năng; đặc tả SRS, Use Case và Sequence Diagram.</li>
+            <li>Thiết kế phân hệ xác thực, quản lý bộ chủ đề AI và cơ sở dữ liệu chuẩn 3NF gồm 14 bảng.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="activities">
+    <div class="container">
+      <h2>Hoạt động</h2>
+      <div class="activities">
+        <article class="activity">
+          <small>2023 – Nay</small>
+          <h3>Thành viên Ban Truyền thông &amp; Tổ chức sự kiện</h3>
+          <p>CLB Nghệ thuật Trường CNTT &amp; TT – HaUI</p>
+          <p>Phối hợp với các ban lên kế hoạch và sản xuất MV ca nhạc (Ngược, Nơi sóng ghé qua, Trốn sao được); phụ trách chụp tư liệu sự kiện. Qua đó rèn luyện kỹ năng làm việc nhóm, giao tiếp và quản lý tiến độ giữa ban sự kiện với ban nhạc.</p>
+        </article>
+        <article class="activity">
+          <small>2024 – Nay</small>
+          <h3>Cộng tác viên Ban Truyền thông · Trường Kinh tế – HaUI</h3>
+          <p>Làm việc trực tiếp với phòng Đối ngoại, tìm hiểu quy trình tổ chức và sản xuất video cho các sự kiện lớn như SE – HaUI Hackathon và NEXTGEN Accounting Challenge. Rèn luyện kỹ năng làm việc với đối tác, lắng nghe yêu cầu và xử lý tình huống linh hoạt.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact">
+  <div class="container">
+    <ul>
+      <li><a href="mailto:jerrygaming1997@gmail.com">Email</a></li>
+      <li><a href="tel:+843638587121">Điện thoại</a></li>
+    </ul>
+    <small>Vạn Xuân, Thái Nguyên · © 2026 Phạm Công Lý</small>
+  </div>
+</footer>
+
+<button class="top" id="top" aria-label="Lên đầu trang">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+<script>
+  const topButton = document.getElementById('top');
+  addEventListener('scroll', () => topButton.classList.toggle('show', scrollY > 400));
+  topButton.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
